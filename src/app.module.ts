@@ -12,7 +12,7 @@ import { ProductsModule } from './products/products.module';
     // Koneksi ke MongoDB Atlas menggunakan URI dari .env
     MongooseModule.forRootAsync({
       imports: [ConfigModule],
-      useFactory: async (configService: ConfigService) => ({
+      useFactory: (configService: ConfigService) => ({
         uri: configService.get<string>('MONGODB_URI'),
       }),
       inject: [ConfigService],
